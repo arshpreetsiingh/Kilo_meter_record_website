@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Kilometers Driven</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Record Kilometers Driven</h1>
+            <button id="toggle-dark-mode"><i class="fas fa-adjust"></i></button>
+        </header>
+        <main>
+            <div id="record-form">
+                <label for="kilometers">Kilometers:</label>
+                <input type="number" id="kilometers" min="0" step="0.1">
+                <label for="date">Date:</label>
+                <input type="date" id="date">
+                <button onclick="recordKilometers()"><i class="fas fa-plus"></i> Record</button>
+            </div>
+            <div id="total-kilometers">Total Kilometers Driven: 0 km</div>
+            <div class="action-buttons">
+                <button id="reset-button" onclick="resetRecords()"><i class="fas fa-trash-alt"></i> Reset All Records</button>
+                <button id="export-button" onclick="exportRecords()"><i class="fas fa-file-export"></i> Export Records</button>
+            </div>
+            <div id="filter-form">
+                <h2>Filter Records</h2>
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+                <button onclick="filterRecords()"><i class="fas fa-filter"></i> Filter</button>
+            </div>
+            <div id="search-form">
+                <h2>Search Records</h2>
+                <input type="text" id="search-input" placeholder="Search by date or kilometers" oninput="searchRecords()">
+            </div>
+            <div id="sort-form">
+                <h2>Sort Records</h2>
+                <label for="sort-by">Sort By:</label>
+                <select id="sort-by" onchange="sortRecords()">
+                    <option value="date">Date</option>
+                    <option value="kilometers">Kilometers</option>
+                </select>
+            </div>
+            <div id="records-list">
+                <h2>Past Records</h2>
+                <div id="records"></div>
+            </div>
+            <div class="monthly-summary">
+                <h2>Monthly Summary</h2>
+                <div id="monthly-summary"></div>
+            </div>
+            <div id="chart-container">
+                <h2>Monthly Kilometers Driven</h2>
+                <canvas id="chart"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
